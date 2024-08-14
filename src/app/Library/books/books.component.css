@@ -1,0 +1,103 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  flex: 0 0 50%; /* Each column takes up 50% width */
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.book-card {
+  position: relative;
+  text-align: center;
+  margin: 15px;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.book-cover {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-cover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay button {
+  margin: 5px;
+  width: 90px;
+  font-size: 14px;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  height: 15%; /* Ensures text spacing */
+  overflow: hidden; /* Ensures the text doesn't overflow */
+}
+/* Estilo general para los botones */
+.boton {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilo para el botón de "Ver Detalle" */
+.boton-detalle {
+  background-color: #007bff; /* Azul primario */
+  color: #fff; /* Texto blanco */
+}
+
+.boton-detalle:hover {
+  background-color: #0056b3; /* Azul oscuro al pasar el mouse */
+}
+
+/* Estilo para el botón de "Agregar al Carrito" */
+.boton-carrito {
+  background-color: #28a745; /* Verde */
+  color: #fff; /* Texto blanco */
+}
+
+.boton-carrito:hover {
+  background-color: #218838; /* Verde oscuro al pasar el mouse */
+}

@@ -1,0 +1,92 @@
+.navbar {
+  background-color: #b30c0c;
+  color: white;
+  padding: 10px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.Logo{
+  margin-top: 15px;
+  transform: scale(2.5); /* Escala el logo al 150% de su tamaño original */
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+
+  img {
+    max-height: 50px;
+    margin-right: 10px;
+  }
+
+  span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.navbar-links {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    margin: 0 15px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #f3e5ab;
+    }
+  }
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+
+  input[type="text"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+  }
+
+  .search-button {
+    background-color: #b30c0c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f3e5ab;
+      color: #b30c0c;
+    }
+  }
+
+  .login-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+
+    &:hover {
+      color: #f3e5ab;
+    }
+  }
+
+  .cart-link img {
+    max-height: 30px;
+  }
+}

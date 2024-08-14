@@ -1,0 +1,15 @@
+<div class="container my-4">
+  <h2 class="section-title">Libros disponibles</h2>
+  <div class="row">
+    <div class="col-3 d-flex justify-content-center" *ngFor="let book of books">
+      <div class="book-card">
+        <img [src]="book.image" alt="Book Cover" class="book-cover" />
+        <div class="overlay">
+          <button class="boton boton-detalle" (click)="viewBook(book)">Visualizar</button>
+          <button class="boton boton-carrito" (click)="addToCart(book)">Comprar</button>
+        </div>
+        <p>{{ book.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>

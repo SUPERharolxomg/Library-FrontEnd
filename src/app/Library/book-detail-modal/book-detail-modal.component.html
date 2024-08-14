@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content class="dialog-content">
+  <div class="text-content">
+    <p><strong>Autor:</strong> {{ data.autor }}</p>
+    <p><strong>Descripción:</strong> {{ data.description }}</p>
+    <p><strong>Precio:</strong> ${{ data.price }}</p>
+    <p><strong>Calificación:</strong> {{ data.stars }} estrellas</p>
+  </div>
+  <div class="image-content">
+    <img [src]="data.image" alt="Book Cover" class="book-cover"/>
+  </div>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button [mat-dialog-close]="true" class="close-button">Cerrar</button>
+</div>
