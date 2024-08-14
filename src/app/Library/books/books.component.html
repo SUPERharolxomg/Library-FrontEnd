@@ -5,10 +5,13 @@
       <div class="book-card">
         <img [src]="book.image" alt="Book Cover" class="book-cover" />
         <div class="overlay">
-          <button class="boton boton-detalle" (click)="viewBook(book)">Visualizar</button>
-          <button class="boton boton-carrito" (click)="addToCart(book)">Comprar</button>
+          <button class="boton boton-detalle" (click)="viewBook(book)">
+            <mat-icon>remove_red_eye</mat-icon></button>
+          <button class="boton boton-carrito" (click)="addToCart(book)">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
         </div>
-        <p>{{ book.title }}</p>
+        <p>{{ book.Books_name }}</p>
       </div>
     </div>
   </div>

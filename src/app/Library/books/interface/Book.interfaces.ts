@@ -1,8 +1,8 @@
 export interface Book {
-    title: string;
+    Books_name: string;
     image: string;
     description: string;
-    autor: string;
+    author_libr: string;
     price: number;
     stars: number;
   }

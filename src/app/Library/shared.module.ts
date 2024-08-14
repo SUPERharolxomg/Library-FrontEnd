@@ -6,6 +6,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BookDetailModalComponent } from './book-detail-modal/book-detail-modal.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { BookDetailModalComponent } from './book-detail-modal/book-detail-modal.
     NgbCarouselModule,
     MatDialogModule,
     MatButtonModule,
+    MatIconModule,
+    MatInputModule
   ],
   exports: [
     NavbarComponent,
