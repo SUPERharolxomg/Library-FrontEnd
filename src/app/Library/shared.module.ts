@@ -8,12 +8,15 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BookDetailModalComponent } from './book-detail-modal/book-detail-modal.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { CartComponent } from './cart/cart.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     BooksComponent,
-    BookDetailModalComponent
+    BookDetailModalComponent,
+    CartComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,

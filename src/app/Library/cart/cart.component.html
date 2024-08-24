@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="cart-container">
+    <h2>Carrito de Compras</h2>
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <img [src]="item.image" alt="Book Cover" class="cart-item-image"/>
+      <div class="cart-item-details">
+        <p><strong>{{ item.Books_name }}</strong></p>
+        <p>Precio: ${{ item.price }}</p>
+      </div>
+    </div>
+    <button (click)="checkout()" class="checkout-button">Pagar contra entrega</button>
+  </div>
+  

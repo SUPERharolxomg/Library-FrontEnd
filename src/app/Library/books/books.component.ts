@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { BookDetailModalComponent } from '../book-detail-modal/book-detail-modal.component';
 import { Book } from './interface/Book.interfaces';
 import { BookService } from './services/Books.service'; // Asegúrate de que la ruta sea correcta
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-books',
@@ -13,7 +14,11 @@ export class BooksComponent implements OnInit {
   books: Book[] = [];
   chunkedBooks: Book[][] = []; 
 
-  constructor(private bookService: BookService, private dialog: MatDialog) {}
+  constructor(
+    private bookService: BookService, 
+    private dialog: MatDialog,
+    private cartService: CartService,
+  ) {}
 
   ngOnInit() {
     this.loadBooks();
@@ -39,6 +44,7 @@ export class BooksComponent implements OnInit {
   }
 
   addToCart(book: Book) {
-    console.log('Book added to cart:', book);
+    this.cartService.addToCart(book);
+    console.log(`Book added to cart: ${book.Books_name}`);
   }
 }
