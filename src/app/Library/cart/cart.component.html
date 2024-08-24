@@ -1,13 +1,30 @@
 <app-navbar></app-navbar>
 <div class="cart-container">
-    <h2>Carrito de Compras</h2>
-    <div *ngFor="let item of cartItems" class="cart-item">
-      <img [src]="item.image" alt="Book Cover" class="cart-item-image"/>
-      <div class="cart-item-details">
-        <p><strong>{{ item.Books_name }}</strong></p>
-        <p>Precio: ${{ item.price }}</p>
-      </div>
+  <h2>Carrito de Compras</h2>
+  <div *ngFor="let product of cartItems" class="cart-item">
+    <img [src]="product.image" alt="Product Image" class="cart-item-image"/>
+    <div class="cart-item-details">
+      <p>{{ product.Books_name }}</p>
+      <p>{{ product.price | currency:'USD' }}</p>
     </div>
-    <button (click)="checkout()" class="checkout-button">Pagar contra entrega</button>
+    <div class="cart-item-actions">
+      <button (click)="decreaseQuantity(product)">-</button>
+      <span>{{ product.quantity }}</span>
+      <button (click)="increaseQuantity(product)">+</button>
+    </div>
   </div>
   
+  <div class="cart-summary">
+    <p>Producto: {{ totalCost | currency:'USD' }}</p>
+    <p>Envío: Gratis</p>
+    <p>Total: {{ totalCost | currency:'USD' }}</p>
+  </div>
+  
+  <form (ngSubmit)="submitOrder()" class="checkout-form">
+    <div>
+      <label for="address">Dirección de entrega:</label>
+      <input id="address" [(ngModel)]="deliveryAddress" name="address" required>
+    </div>
+    <button type="submit" [disabled]="!cartItems.length">Continuar compra</button>
+  </form>  
+</div>

@@ -28,7 +28,6 @@ export class BooksComponent implements OnInit {
     this.bookService.getAllBooks().subscribe(
       (data: Book[]) => {
         this.books = data;
-        // Aquí puedes implementar la lógica para dividir los libros en 'chunks' si es necesario
       },
       error => {
         console.error('Error al cargar los libros:', error);
@@ -45,6 +44,5 @@ export class BooksComponent implements OnInit {
 
   addToCart(book: Book) {
     this.cartService.addToCart(book);
-    console.log(`Book added to cart: ${book.Books_name}`);
   }
 }
