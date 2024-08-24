@@ -4,13 +4,15 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './Library/home/home.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CartComponent } from './Library/cart/cart.component';
+import { UserComponent } from './Library/users/users.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent }, 
+  { path: 'Home', component: HomeComponent },
+  { path: 'Login', component: LoginComponent }, 
   { path: 'Sign-in', component: SignInComponent }, 
-  { path: 'cart', component: CartComponent },
-  { path: '**', redirectTo: 'login' } 
+  { path: 'Cart', component: CartComponent },
+  { path: 'User',component:UserComponent},
+  { path: '**', redirectTo: 'Login' } 
 ];
 
 @NgModule({

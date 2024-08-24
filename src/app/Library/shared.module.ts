@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from './cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     BooksComponent,
     BookDetailModalComponent,
     CartComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
