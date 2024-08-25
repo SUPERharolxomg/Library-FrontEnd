@@ -1,7 +1,7 @@
 // sign-in.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/Auth/auth.service';
+import { AuthService } from '../login/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit {
       .subscribe({
         next:(response) => {
           alert("Usuario creado correctamente")
-        this.router.navigate(['/login']);
+        this.router.navigate(['/Login']);
         },
         error:(error)=>{
           console.error('Login error',error);

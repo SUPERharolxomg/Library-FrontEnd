@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CartService } from '../../services/cart/cart.service';
+import { CartService } from './services/cart.service';
 import { Book } from '../books/interface/Book.interfaces';
 
 @Component({

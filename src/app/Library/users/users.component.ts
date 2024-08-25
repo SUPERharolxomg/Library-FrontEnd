@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { User } from './interfaces/user.interfaces';
-
+import { UserService } from './services/user.service';
+import { AuthService } from '../../login/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -16,16 +17,26 @@ export class UserComponent implements OnInit {
     address: ''
   };
   isEditing: boolean = false;
+  userId: string | null = null;
+  showDeleteDialog: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private userService: UserService, 
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.getUserInfo();
+    this.userId = this.authService.getUserId();
+    if (this.userId) {
+      this.getUserInfo(this.userId);
+    } else {
+      console.error('No se pudo encontrar el ID del usuario.');
+    }
   }
 
-  getUserInfo() {
-    // Replace with your actual API endpoint to fetch user data
-    this.http.get<User>('http://localhost:3000/users/1').subscribe(
+  getUserInfo(userId: string) {
+    this.userService.getUserInfo(userId).subscribe(
       (data) => {
         this.user = data;
       },
@@ -40,14 +51,42 @@ export class UserComponent implements OnInit {
   }
 
   saveChanges() {
-    this.http.patch('http://localhost:3000/users/1', this.user).subscribe(
-      (response) => {
-        console.log('User information updated successfully', response);
-        this.isEditing = false;
-      },
-      (error) => {
-        console.error('Error updating user information', error);
-      }
-    );
+    if (this.userId) {
+      this.userService.updateUserInfo(this.userId, this.user).subscribe(
+        (response) => {
+          console.log('User information updated successfully', response);
+          this.isEditing = false;
+        },
+        (error) => {
+          console.error('Error updating user information', error);
+        }
+      );
+    }
   }
+
+  openDeleteDialog() {
+    this.showDeleteDialog = true;
+  }
+
+  closeDeleteDialog() {
+    this.showDeleteDialog = false;
+  }
+
+  confirmDeleteAccount() {
+    const confirmDelete = confirm('¿Eliminar cuenta?');
+    if (confirmDelete) {
+      this.deleteAccount();
+    }
+  }
+  
+  deleteAccount() {
+    if(this.userId){
+    this.userService.deleteUser(this.userId).subscribe(() => {
+      alert('Cuenta eliminada exitosamente.');
+      this.router.navigate(['/Login']);
+    }, error => {
+      alert('Error al eliminar la cuenta.');
+    });
+  }
+} 
 }

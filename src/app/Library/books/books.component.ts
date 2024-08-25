@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { BookDetailModalComponent } from '../book-detail-modal/book-detail-modal.component';
 import { Book } from './interface/Book.interfaces';
 import { BookService } from './services/Books.service'; // Asegúrate de que la ruta sea correcta
-import { CartService } from '../../services/cart/cart.service';
+import { CartService } from '../cart/services/cart.service';
 
 @Component({
   selector: 'app-books',

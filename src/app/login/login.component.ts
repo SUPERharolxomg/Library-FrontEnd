@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/Auth/auth.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -27,13 +27,14 @@ export class LoginComponent {
       const { email, password } = this.loginForm?.value;
       this.authService.login(email, password).subscribe({
         next: (response) => {
-          this.router.navigate(['/home']);
+          localStorage.setItem('userId', response.user);
+          this.router.navigate(['/Home']);
         },
         error: (error) => {
-          // Manejar error de login
           console.error('Login error', error);
         }
       });
     }
-  }
+  }  
 }
+  

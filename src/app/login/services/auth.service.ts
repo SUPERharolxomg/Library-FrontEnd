@@ -8,6 +8,7 @@ import { environment } from '../../../environment/enviroment';
 })
 export class AuthService {
   private apiUrl = environment.URL_Back ; 
+  private userId: string | null = null; 
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +24,11 @@ export class AuthService {
       })
     );
   }
+
+  getUserId(): string | null {
+    return this.userId || localStorage.getItem('userId');
+  }
+
   register(email: string, password: string, name: string, phone: string, address: string):Observable<any>{
     return this.http.post<any>(this.apiUrl+'/auth/register', { email, password, name, phone, address
   }).pipe(

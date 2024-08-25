@@ -1,28 +1,29 @@
 <app-navbar></app-navbar>
 <div class="user-container">
-    <h2>User Information</h2>
-  
-    <div class="user-field">
-      <label for="client_name">Name:</label>
-      <input id="client_name" [(ngModel)]="user.client_name" [readonly]="!isEditing">
-    </div>
-  
-    <div class="user-field">
-      <label for="phone">Phone:</label>
-      <input id="phone" [(ngModel)]="user.phone" [readonly]="!isEditing">
-    </div>
-  
-    <div class="user-field">
-      <label for="email">Email:</label>
-      <input id="email" [(ngModel)]="user.email" [readonly]="!isEditing">
-    </div>
-  
-    <div class="user-field">
-      <label for="address">Address:</label>
-      <input id="address" [(ngModel)]="user.address" [readonly]="!isEditing">
-    </div>
-  
-    <button *ngIf="!isEditing" (click)="enableEditing()">Edit</button>
-    <button *ngIf="isEditing" (click)="saveChanges()">Save Changes</button>
+  <h2>User Information</h2>
+
+  <div class="user-field">
+    <label for="client_name">Name:</label>
+    <input id="client_name" [(ngModel)]="user.client_name" [readonly]="!isEditing">
   </div>
-  
+
+  <div class="user-field">
+    <label for="phone">Phone:</label>
+    <input id="phone" [(ngModel)]="user.phone" [readonly]="!isEditing">
+  </div>
+
+  <div class="user-field">
+    <label for="email">Email:</label>
+    <input id="email" [(ngModel)]="user.email" [readonly]="!isEditing">
+  </div>
+
+  <div class="user-field">
+    <label for="address">Address:</label>
+    <input id="address" [(ngModel)]="user.address" [readonly]="!isEditing">
+  </div>
+
+  <button *ngIf="!isEditing" (click)="enableEditing()">Edit</button>
+  <button *ngIf="isEditing" (click)="saveChanges()">Save Changes</button>
+
+  <button class="delete-account" (click)="confirmDeleteAccount()">Eliminar Cuenta</button>
+</div>

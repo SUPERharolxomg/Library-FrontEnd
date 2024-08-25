@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Book } from '../../Library/books/interface/Book.interfaces';
+import { Book } from '../../books/interface/Book.interfaces';
 
 
 @Injectable({
