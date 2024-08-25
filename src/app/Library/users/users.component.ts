@@ -63,15 +63,6 @@ export class UserComponent implements OnInit {
       );
     }
   }
-
-  openDeleteDialog() {
-    this.showDeleteDialog = true;
-  }
-
-  closeDeleteDialog() {
-    this.showDeleteDialog = false;
-  }
-
   confirmDeleteAccount() {
     const confirmDelete = confirm('¿Eliminar cuenta?');
     if (confirmDelete) {
